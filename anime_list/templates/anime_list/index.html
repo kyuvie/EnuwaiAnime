@@ -1,0 +1,13 @@
+<html>
+	<head>
+		<title>今日のアニメ</title>
+	</head>
+	<body>
+		<h1>今日のアニメ</h1>
+		<ul>
+		{% for anime in animes %}
+		<li>{{ anime.title }}</li>
+		{% endfor %}
+		</ul>
+	</body>
+</html>

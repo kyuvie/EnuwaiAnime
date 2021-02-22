@@ -39,9 +39,14 @@ jobs: # A basic unit of work in a run
       - run:
           command: |
             pipenv run python manage.py test
+      - run:
+          command: |
+            pipenv run coverage run --source="." --omit="*/tests/*" manage.py test
+            pipenv run coverage report
+            pipenv run coverage html
+
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test-results
       - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: test-results
-          destination: tr1
+          path: htmlcov
 
